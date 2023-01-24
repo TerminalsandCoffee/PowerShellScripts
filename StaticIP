@@ -13,3 +13,8 @@ New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.2.100 -PrefixLeng
 $adapter = Get-NetAdapter | Where-Object {$_.Status -eq 'Up'}
 New-NetIPAddress -InterfaceIndex $adapter.ifIndex -IPAddress 192.168.2.100 -PrefixLength 24 -DefaultGateway 192.168.2.254
 
+
+#add dns 
+
+$dnsServer = @("8.8.8.8","8.8.4.4")
+Set-DnsClientServerAddress -InterfaceIndex $adapter.ifIndex -ServerAddresses $dnsServer
