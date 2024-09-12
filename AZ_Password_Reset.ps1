@@ -13,7 +13,7 @@ $users = @(
 
 # Loop through each user and reset the password
 foreach ($user in $users) {
-    $newPassword = "YouSaidThisIndoButItSmellLikeOutdo"
+    $newPassword = "PassW0rd!"
     Set-AzureADUserPassword -ObjectId $user -Password $newPassword -ForceChangePasswordNextSignIn $true
     Write-Host "Password reset for $user"
 }
